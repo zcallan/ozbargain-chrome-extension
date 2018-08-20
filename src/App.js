@@ -4,6 +4,7 @@ import styled, { css } from 'styled-components';
 import he from 'he';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
+import config from './config';
 
 dayjs.extend( relativeTime );
 
@@ -93,7 +94,7 @@ class App extends Component {
     });
 
     try {
-      const { data } = await axios( 'http://localhost:3001/latest-deals' );
+      const { data } = await axios( `${config.apiUrl}/latest-deals` );
 
       this.setState({ latestDeals: data });
     }
@@ -134,6 +135,7 @@ class App extends Component {
               <Deal key={deal.guid}>
                 <DealTitle>
                   {deal.title.split( /(\$\d+(,\d{3})*(\.\d*)?)/g ).map( str => {
+                    /* TODO: Fix bug showing decimal places after money */
                     if ( str && str.startsWith( '$' ))
                       return <em class="money">{str}</em>;
 
@@ -151,7 +153,11 @@ class App extends Component {
                   }}
                 />
 
-                <Link href={deal.link} target="_blank" rel="noopener noreferrer">
+                <Link
+                  href={deal.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <DealButton>
                     Visit deal
                   </DealButton>

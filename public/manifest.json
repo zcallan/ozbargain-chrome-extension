@@ -2,7 +2,7 @@
   "manifest_version": 2,
 
   "name": "OzBargain Chrome Extension",
-  "description": "This extension is a starting point to create a real Chrome extension",
+  "description": "Always be up to date with the latest deals from OzBargain. This is an unofficial extension.",
   "version": "0.0.1",
 
   "browser_action": {
