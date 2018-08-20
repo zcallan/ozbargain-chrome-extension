@@ -3,14 +3,26 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.18.0",
+    "dayjs": "^1.7.5",
+    "express": "^4.16.3",
+    "fast-xml-parser": "^3.12.0",
+    "he": "^1.1.1",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
-    "react-scripts": "1.1.4"
+    "react-scripts": "1.1.4",
+    "styled-components": "^3.4.2"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "start:server": "node ./server/index.js",
+    "start:server-dev": "nodemon ./server/index.js"
+  },
+  "devDependencies": {
+    "cors": "^2.8.4",
+    "nodemon": "^1.18.3"
   }
 }
